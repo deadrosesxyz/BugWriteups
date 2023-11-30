@@ -90,7 +90,7 @@ In order to understand the vulnerability we need to first take a look at the `vo
 ```
 
 To summarize it - anytime `vote` is invoked, it first makes a call to `reset`, withdrawing all current votes from the corresponding bribes. After votes are successfully reset, the user 'deposits' into the bribes of the gauges they're voting for. 
-So far so good. However, let's take a look at the bribe's `deposit` function 
+So far so good. However, let's take a look at the bribe's `withdraw` function 
 ```solidity
     function withdraw(uint256 amount, uint256 tokenId) external nonReentrant {
         require(amount > 0, "Cannot withdraw 0");
